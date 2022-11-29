@@ -1,0 +1,65 @@
+<style>
+  .form-control {
+      display: block;
+      margin-top: 3%;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0.25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+</style>
+<div class="modal fade" id="ProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="{% url 'add_product' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group form_class">
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Product Name">
+              </div>
+              <div class="form-group form_class">
+                <input type="number"  name="serial_no" class="form-control" id="formGroupExampleInput2" placeholder="Serial No">
+              </div>
+              <div class="form-group form_class">
+                <input type="number" name="quantity" class="form-control" id="formGroupExampleInput" placeholder="Quantity">
+              </div>
+              <div class="form-group form_class">
+                <input type="number"  name="price"class="form-control" id="formGroupExampleInput2" placeholder="Price">
+              </div>
+              <div class="form-group form_class">
+                <input type="number"  name="comapny_code" class="form-control" id="formGroupExampleInput2" placeholder="Company Code">
+              </div>
+              <div class="form-group form_class">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input form-control" name="image" id="inputGroupFile01">
+                    {% comment %} <label class="custom-file-label" for="inputGroupFile01">Choose file</label> {% endcomment %}
+                  </div>
+              </div>
+              <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success" >Add Product</button>
+              </div>
+            </form>
+      </div> 
+     
+    </div>
+  </div>
+</div>
+</div>
